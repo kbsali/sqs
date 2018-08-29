@@ -5,12 +5,13 @@ namespace Enqueue\Sqs;
 use Interop\Queue\InvalidMessageException;
 use Interop\Queue\PsrConsumer;
 use Interop\Queue\PsrContext;
+use Interop\Queue\PsrDestination;
 use Interop\Queue\PsrMessage;
 
 class SqsConsumer implements PsrConsumer
 {
     /**
-     * @var SqsDestination
+     * @var PsrDestination
      */
     private $queue;
 
@@ -36,9 +37,9 @@ class SqsConsumer implements PsrConsumer
 
     /**
      * @param PsrContext     $context
-     * @param SqsDestination $queue
+     * @param PsrDestination $queue
      */
-    public function __construct(PsrContext $context, SqsDestination $queue)
+    public function __construct(PsrContext $context, PsrDestination $queue)
     {
         $this->context = $context;
         $this->queue = $queue;
